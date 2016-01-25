@@ -65,7 +65,7 @@ namespace Castlevania___HoD__Save_Editor_
         private Object[] statsEquippedaccessory2Hex = { (Int32)0x22, 1 };
         private Object[] statsEquippedaccessory3Hex = { (Int32)0x23, 1 };
 
-        private Object[] mapsLocation = { (Int32)0xb8, 2 };
+        private Object[] mapsLocation = { (Int32)0x3b8, 2 };
 
         private Object[] abilitiesWhipsHex = { (Int32)0x5c, 2 };
 
@@ -244,6 +244,11 @@ namespace Castlevania___HoD__Save_Editor_
         private Object[] encyclopedia11Hex = { (Int32)0xfe, 1 };
         private Object[] encyclopedia12Hex = { (Int32)0xff, 1 };
         private Object[] encyclopedia13Hex = { (Int32)0x100, 1 };
+
+        private Object[] collectibles1Hex = { (Int32)0xe3, 1 };
+        private Object[] collectibles2Hex = { (Int32)0xe4, 1 };
+        private Object[] collectibles3Hex = { (Int32)0xe5, 1 };
+        private Object[] collectibles4Hex = { (Int32)0xe6, 1 };
 
         #endregion
 
@@ -426,14 +431,14 @@ namespace Castlevania___HoD__Save_Editor_
             {
                 if (hex - entry >= 0)
                 {
-                    encyclopediaInput[1, index + (8 * page)].Value = true;
+                    collectibleInput[1, index + (8 * page)].Value = true;
                     hex -= entry;
                 }
                 else
                 {
                     if ((index + (8 * page)) <= 99)
                     {
-                        encyclopediaInput[1, index + (8 * page)].Value = false;
+                        collectibleInput[1, index + (8 * page)].Value = false;
                     }
                 }
                 index -= 1;
@@ -453,6 +458,49 @@ namespace Castlevania___HoD__Save_Editor_
                     if ((bool)input[1, index].Value)
                     {
                         hex += encyclopedia[(index - (8 * page))];
+                    }
+                }
+            }
+
+            return hex;
+        }
+
+        public void readCollectibles(Decimal hex, int page)
+        {
+            int[] collectibles = { 128, 64, 32, 16, 8, 4, 2, 1 };
+            int index = 7;
+
+            foreach (int collectible in collectibles)
+            {
+                if (hex - collectible >= 0)
+                {
+                    collectiblesInput[1, index + (8 * page)].Value = true;
+                    hex -= collectible;
+                }
+                else
+                {
+                    if ((index + (8 * page)) <= 30)
+                    {
+                        collectiblesInput[1, index + (8 * page)].Value = false;
+                    }
+                }
+                index -= 1;
+            }
+        }
+
+        public int writeCollectibles(DataGridView input, int page)
+        {
+            int[] collectibles = { 1, 2, 4, 8, 16, 32, 64, 128 };
+
+            int hex = 0;
+
+            for (int index = (8 * page); index <= (7 + (8 * page)); index++)
+            {
+                if (index <= 30)
+                {
+                    if ((bool)input[1, index].Value)
+                    {
+                        hex += collectibles[(index - (8 * page))];
                     }
                 }
             }
@@ -771,7 +819,12 @@ namespace Castlevania___HoD__Save_Editor_
                 readEncyclopedia(savEdit.readData((int)encyclopedia11Hex[0] + locationValue, (int)encyclopedia11Hex[1]), 10);
                 readEncyclopedia(savEdit.readData((int)encyclopedia12Hex[0] + locationValue, (int)encyclopedia12Hex[1]), 11);
                 readEncyclopedia(savEdit.readData((int)encyclopedia13Hex[0] + locationValue, (int)encyclopedia13Hex[1]), 12);
-                
+
+                readCollectibles(savEdit.readData((int)collectibles1Hex[0] + locationValue, (int)collectibles1Hex[1]), 0);
+                readCollectibles(savEdit.readData((int)collectibles2Hex[0] + locationValue, (int)collectibles2Hex[1]), 1);
+                readCollectibles(savEdit.readData((int)collectibles3Hex[0] + locationValue, (int)collectibles3Hex[1]), 2);
+                readCollectibles(savEdit.readData((int)collectibles4Hex[0] + locationValue, (int)collectibles4Hex[1]), 3);
+
                 writeMessage("Loaded.");
             }
             catch (Exception err)
@@ -1038,20 +1091,25 @@ namespace Castlevania___HoD__Save_Editor_
 
                 savEdit.writeData((int)abilitiesRelicsHex[0] + locationValue, (int)abilitiesRelicsHex[1], writeRelics(abilitiesRelicsInput));
 
-                savEdit.writeData((int)encyclopedia1Hex[0] + locationValue, (int)encyclopedia1Hex[1], writeEncyclopedia(encyclopediaInput, 0));
-                savEdit.writeData((int)encyclopedia2Hex[0] + locationValue, (int)encyclopedia2Hex[1], writeEncyclopedia(encyclopediaInput, 1));
-                savEdit.writeData((int)encyclopedia3Hex[0] + locationValue, (int)encyclopedia3Hex[1], writeEncyclopedia(encyclopediaInput, 2));
-                savEdit.writeData((int)encyclopedia4Hex[0] + locationValue, (int)encyclopedia4Hex[1], writeEncyclopedia(encyclopediaInput, 3));
-                savEdit.writeData((int)encyclopedia5Hex[0] + locationValue, (int)encyclopedia5Hex[1], writeEncyclopedia(encyclopediaInput, 4));
-                savEdit.writeData((int)encyclopedia6Hex[0] + locationValue, (int)encyclopedia6Hex[1], writeEncyclopedia(encyclopediaInput, 5));
-                savEdit.writeData((int)encyclopedia7Hex[0] + locationValue, (int)encyclopedia7Hex[1], writeEncyclopedia(encyclopediaInput, 6));
-                savEdit.writeData((int)encyclopedia8Hex[0] + locationValue, (int)encyclopedia8Hex[1], writeEncyclopedia(encyclopediaInput, 7));
-                savEdit.writeData((int)encyclopedia9Hex[0] + locationValue, (int)encyclopedia9Hex[1], writeEncyclopedia(encyclopediaInput, 8));
-                savEdit.writeData((int)encyclopedia10Hex[0] + locationValue, (int)encyclopedia10Hex[1], writeEncyclopedia(encyclopediaInput, 9));
-                savEdit.writeData((int)encyclopedia11Hex[0] + locationValue, (int)encyclopedia11Hex[1], writeEncyclopedia(encyclopediaInput, 10));
-                savEdit.writeData((int)encyclopedia12Hex[0] + locationValue, (int)encyclopedia12Hex[1], writeEncyclopedia(encyclopediaInput, 11));
-                savEdit.writeData((int)encyclopedia13Hex[0] + locationValue, (int)encyclopedia13Hex[1], writeEncyclopedia(encyclopediaInput, 12));
-                
+                savEdit.writeData((int)encyclopedia1Hex[0] + locationValue, (int)encyclopedia1Hex[1], writeEncyclopedia(collectibleInput, 0));
+                savEdit.writeData((int)encyclopedia2Hex[0] + locationValue, (int)encyclopedia2Hex[1], writeEncyclopedia(collectibleInput, 1));
+                savEdit.writeData((int)encyclopedia3Hex[0] + locationValue, (int)encyclopedia3Hex[1], writeEncyclopedia(collectibleInput, 2));
+                savEdit.writeData((int)encyclopedia4Hex[0] + locationValue, (int)encyclopedia4Hex[1], writeEncyclopedia(collectibleInput, 3));
+                savEdit.writeData((int)encyclopedia5Hex[0] + locationValue, (int)encyclopedia5Hex[1], writeEncyclopedia(collectibleInput, 4));
+                savEdit.writeData((int)encyclopedia6Hex[0] + locationValue, (int)encyclopedia6Hex[1], writeEncyclopedia(collectibleInput, 5));
+                savEdit.writeData((int)encyclopedia7Hex[0] + locationValue, (int)encyclopedia7Hex[1], writeEncyclopedia(collectibleInput, 6));
+                savEdit.writeData((int)encyclopedia8Hex[0] + locationValue, (int)encyclopedia8Hex[1], writeEncyclopedia(collectibleInput, 7));
+                savEdit.writeData((int)encyclopedia9Hex[0] + locationValue, (int)encyclopedia9Hex[1], writeEncyclopedia(collectibleInput, 8));
+                savEdit.writeData((int)encyclopedia10Hex[0] + locationValue, (int)encyclopedia10Hex[1], writeEncyclopedia(collectibleInput, 9));
+                savEdit.writeData((int)encyclopedia11Hex[0] + locationValue, (int)encyclopedia11Hex[1], writeEncyclopedia(collectibleInput, 10));
+                savEdit.writeData((int)encyclopedia12Hex[0] + locationValue, (int)encyclopedia12Hex[1], writeEncyclopedia(collectibleInput, 11));
+                savEdit.writeData((int)encyclopedia13Hex[0] + locationValue, (int)encyclopedia13Hex[1], writeEncyclopedia(collectibleInput, 12));
+
+                savEdit.writeData((int)collectibles1Hex[0] + locationValue, (int)collectibles1Hex[1], writeCollectibles(collectiblesInput, 0));
+                savEdit.writeData((int)collectibles2Hex[0] + locationValue, (int)collectibles2Hex[1], writeCollectibles(collectiblesInput, 1));
+                savEdit.writeData((int)collectibles3Hex[0] + locationValue, (int)collectibles3Hex[1], writeCollectibles(collectiblesInput, 2));
+                savEdit.writeData((int)collectibles4Hex[0] + locationValue, (int)collectibles4Hex[1], writeCollectibles(collectiblesInput, 3));
+
                 writeMessage("Saved.");
             }
             catch (Exception err)
@@ -1074,6 +1132,7 @@ namespace Castlevania___HoD__Save_Editor_
             loadAccessories();
             loadItems();
             loadEncyclopedia();
+            loadCollectibles();
         }
 
         private void slot1Button_CheckedChanged(object sender, EventArgs e)

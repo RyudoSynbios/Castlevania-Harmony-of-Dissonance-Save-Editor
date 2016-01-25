@@ -38,6 +38,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.debug = new System.Windows.Forms.Label();
             this.tabCharacter = new System.Windows.Forms.TabPage();
+            this.characterImage = new System.Windows.Forms.PictureBox();
             this.statsEquippedwhipLabel = new System.Windows.Forms.Label();
             this.statsEquippedwhipInput = new System.Windows.Forms.ComboBox();
             this.statsEquippedaccessory3Label = new System.Windows.Forms.Label();
@@ -102,17 +103,20 @@
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabEncyclopedia = new System.Windows.Forms.TabPage();
-            this.encyclopediaInput = new System.Windows.Forms.DataGridView();
+            this.collectibleInput = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.slot1Button = new System.Windows.Forms.RadioButton();
             this.slot2Button = new System.Windows.Forms.RadioButton();
             this.slot3Button = new System.Windows.Forms.RadioButton();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.characterImage = new System.Windows.Forms.PictureBox();
-            this.tabMap = new System.Windows.Forms.TabPage();
+            this.tabCollectibles = new System.Windows.Forms.TabPage();
+            this.collectiblesInput = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip.SuspendLayout();
             this.tabCharacter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.characterImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsTimeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsGoldInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsLvlInput)).BeginInit();
@@ -134,9 +138,10 @@
             this.tabItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsInput)).BeginInit();
             this.tabEncyclopedia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.encyclopediaInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collectibleInput)).BeginInit();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterImage)).BeginInit();
+            this.tabCollectibles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectiblesInput)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -235,6 +240,16 @@
             this.tabCharacter.Size = new System.Drawing.Size(404, 329);
             this.tabCharacter.TabIndex = 0;
             this.tabCharacter.Text = "Character";
+            // 
+            // characterImage
+            // 
+            this.characterImage.Image = global::Castlevania___HoD__Save_Editor_.Properties.Resources.character_disabled;
+            this.characterImage.Location = new System.Drawing.Point(3, 60);
+            this.characterImage.Name = "characterImage";
+            this.characterImage.Size = new System.Drawing.Size(80, 98);
+            this.characterImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.characterImage.TabIndex = 33;
+            this.characterImage.TabStop = false;
             // 
             // statsEquippedwhipLabel
             // 
@@ -1027,7 +1042,7 @@
             this.tabControl.Controls.Add(this.tabAccessories);
             this.tabControl.Controls.Add(this.tabItems);
             this.tabControl.Controls.Add(this.tabEncyclopedia);
-            this.tabControl.Controls.Add(this.tabMap);
+            this.tabControl.Controls.Add(this.tabCollectibles);
             this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(2, 26);
             this.tabControl.Name = "tabControl";
@@ -1282,7 +1297,7 @@
             // 
             // tabEncyclopedia
             // 
-            this.tabEncyclopedia.Controls.Add(this.encyclopediaInput);
+            this.tabEncyclopedia.Controls.Add(this.collectibleInput);
             this.tabEncyclopedia.Location = new System.Drawing.Point(4, 22);
             this.tabEncyclopedia.Name = "tabEncyclopedia";
             this.tabEncyclopedia.Padding = new System.Windows.Forms.Padding(3);
@@ -1293,22 +1308,22 @@
             // 
             // encyclopediaInput
             // 
-            this.encyclopediaInput.AllowUserToAddRows = false;
-            this.encyclopediaInput.AllowUserToDeleteRows = false;
-            this.encyclopediaInput.AllowUserToResizeColumns = false;
-            this.encyclopediaInput.AllowUserToResizeRows = false;
-            this.encyclopediaInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.encyclopediaInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.encyclopediaInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.collectibleInput.AllowUserToAddRows = false;
+            this.collectibleInput.AllowUserToDeleteRows = false;
+            this.collectibleInput.AllowUserToResizeColumns = false;
+            this.collectibleInput.AllowUserToResizeRows = false;
+            this.collectibleInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.collectibleInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.collectibleInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3});
-            this.encyclopediaInput.Location = new System.Drawing.Point(0, 0);
-            this.encyclopediaInput.Margin = new System.Windows.Forms.Padding(0);
-            this.encyclopediaInput.Name = "encyclopediaInput";
-            this.encyclopediaInput.RowHeadersVisible = false;
-            this.encyclopediaInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.encyclopediaInput.Size = new System.Drawing.Size(404, 339);
-            this.encyclopediaInput.TabIndex = 2;
+            this.collectibleInput.Location = new System.Drawing.Point(0, 0);
+            this.collectibleInput.Margin = new System.Windows.Forms.Padding(0);
+            this.collectibleInput.Name = "encyclopediaInput";
+            this.collectibleInput.RowHeadersVisible = false;
+            this.collectibleInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.collectibleInput.Size = new System.Drawing.Size(404, 339);
+            this.collectibleInput.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1378,26 +1393,50 @@
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             // 
-            // characterImage
+            // tabCollectibles
             // 
-            this.characterImage.Image = global::Castlevania___HoD__Save_Editor_.Properties.Resources.character_disabled;
-            this.characterImage.Location = new System.Drawing.Point(3, 60);
-            this.characterImage.Name = "characterImage";
-            this.characterImage.Size = new System.Drawing.Size(80, 98);
-            this.characterImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.characterImage.TabIndex = 33;
-            this.characterImage.TabStop = false;
+            this.tabCollectibles.Controls.Add(this.collectiblesInput);
+            this.tabCollectibles.Location = new System.Drawing.Point(4, 22);
+            this.tabCollectibles.Name = "tabCollectibles";
+            this.tabCollectibles.Size = new System.Drawing.Size(404, 329);
+            this.tabCollectibles.TabIndex = 9;
+            this.tabCollectibles.Text = "Collectibles";
+            this.tabCollectibles.UseVisualStyleBackColor = true;
             // 
-            // tabMap
+            // collectiblesInput
             // 
-            this.tabMap.BackColor = System.Drawing.Color.Black;
-            this.tabMap.BackgroundImage = global::Castlevania___HoD__Save_Editor_.Properties.Resources.map_ab_revealed;
-            this.tabMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.tabMap.Location = new System.Drawing.Point(4, 22);
-            this.tabMap.Name = "tabMap";
-            this.tabMap.Size = new System.Drawing.Size(404, 329);
-            this.tabMap.TabIndex = 5;
-            this.tabMap.Text = "Map";
+            this.collectiblesInput.AllowUserToAddRows = false;
+            this.collectiblesInput.AllowUserToDeleteRows = false;
+            this.collectiblesInput.AllowUserToResizeColumns = false;
+            this.collectiblesInput.AllowUserToResizeRows = false;
+            this.collectiblesInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.collectiblesInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.collectiblesInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewCheckBoxColumn1});
+            this.collectiblesInput.Location = new System.Drawing.Point(0, 0);
+            this.collectiblesInput.Margin = new System.Windows.Forms.Padding(0);
+            this.collectiblesInput.Name = "collectiblesInput";
+            this.collectiblesInput.RowHeadersVisible = false;
+            this.collectiblesInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.collectiblesInput.Size = new System.Drawing.Size(404, 339);
+            this.collectiblesInput.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Collectible";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn5.Width = 336;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Found";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn1.Width = 50;
             // 
             // Form1
             // 
@@ -1420,6 +1459,7 @@
             this.menuStrip.PerformLayout();
             this.tabCharacter.ResumeLayout(false);
             this.tabCharacter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.characterImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsTimeInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsGoldInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsLvlInput)).EndInit();
@@ -1442,10 +1482,11 @@
             this.tabItems.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.itemsInput)).EndInit();
             this.tabEncyclopedia.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.encyclopediaInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.collectibleInput)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterImage)).EndInit();
+            this.tabCollectibles.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.collectiblesInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1494,7 +1535,6 @@
         private System.Windows.Forms.Label abilitiesSpellbooksLabel;
         private System.Windows.Forms.CheckedListBox abilitiesRelicsInput;
         private System.Windows.Forms.Label abilitiesRelicsLabel;
-        private System.Windows.Forms.TabPage tabMap;
         private System.Windows.Forms.ComboBox statsSubweaponInput;
         private System.Windows.Forms.Label statsSubweaponLabel;
         private System.Windows.Forms.TabPage tabArmors;
@@ -1529,9 +1569,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn accessory;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.TabPage tabEncyclopedia;
-        private System.Windows.Forms.DataGridView encyclopediaInput;
+        private System.Windows.Forms.DataGridView collectibleInput;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.TabPage tabCollectibles;
+        private System.Windows.Forms.DataGridView collectiblesInput;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }
 
