@@ -49,7 +49,7 @@ namespace Castlevania___HoD__Save_Editor_
                     output = (decimal)BitConverter.ToInt16(tempData, 0);
                 else if (bytesToRead == 4)
                     output = (decimal)BitConverter.ToInt32(tempData, 0);
-
+                
                 reader.Flush();
                 reader.Close();
 

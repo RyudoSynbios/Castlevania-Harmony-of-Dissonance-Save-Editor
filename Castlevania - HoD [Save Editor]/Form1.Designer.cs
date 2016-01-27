@@ -106,14 +106,14 @@
             this.collectibleInput = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.slot1Button = new System.Windows.Forms.RadioButton();
-            this.slot2Button = new System.Windows.Forms.RadioButton();
-            this.slot3Button = new System.Windows.Forms.RadioButton();
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.tabCollectibles = new System.Windows.Forms.TabPage();
             this.collectiblesInput = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.slot1Button = new System.Windows.Forms.RadioButton();
+            this.slot2Button = new System.Windows.Forms.RadioButton();
+            this.slot3Button = new System.Windows.Forms.RadioButton();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.menuStrip.SuspendLayout();
             this.tabCharacter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.characterImage)).BeginInit();
@@ -139,9 +139,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsInput)).BeginInit();
             this.tabEncyclopedia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.collectibleInput)).BeginInit();
-            this.groupBox.SuspendLayout();
             this.tabCollectibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.collectiblesInput)).BeginInit();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -173,7 +173,7 @@
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Castlevania Saves|*.sav";
-            this.openFileDialog.Title = "Choisissez une sauvegarde...";
+            this.openFileDialog.Title = "Choose a save file...";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // debug
@@ -1306,7 +1306,7 @@
             this.tabEncyclopedia.Text = "Encyclopedia";
             this.tabEncyclopedia.UseVisualStyleBackColor = true;
             // 
-            // encyclopediaInput
+            // collectibleInput
             // 
             this.collectibleInput.AllowUserToAddRows = false;
             this.collectibleInput.AllowUserToDeleteRows = false;
@@ -1319,7 +1319,7 @@
             this.dataGridViewTextBoxColumn3});
             this.collectibleInput.Location = new System.Drawing.Point(0, 0);
             this.collectibleInput.Margin = new System.Windows.Forms.Padding(0);
-            this.collectibleInput.Name = "encyclopediaInput";
+            this.collectibleInput.Name = "collectibleInput";
             this.collectibleInput.RowHeadersVisible = false;
             this.collectibleInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.collectibleInput.Size = new System.Drawing.Size(404, 339);
@@ -1340,6 +1340,51 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn3.Width = 50;
+            // 
+            // tabCollectibles
+            // 
+            this.tabCollectibles.Controls.Add(this.collectiblesInput);
+            this.tabCollectibles.Location = new System.Drawing.Point(4, 22);
+            this.tabCollectibles.Name = "tabCollectibles";
+            this.tabCollectibles.Size = new System.Drawing.Size(404, 329);
+            this.tabCollectibles.TabIndex = 9;
+            this.tabCollectibles.Text = "Collectibles";
+            this.tabCollectibles.UseVisualStyleBackColor = true;
+            // 
+            // collectiblesInput
+            // 
+            this.collectiblesInput.AllowUserToAddRows = false;
+            this.collectiblesInput.AllowUserToDeleteRows = false;
+            this.collectiblesInput.AllowUserToResizeColumns = false;
+            this.collectiblesInput.AllowUserToResizeRows = false;
+            this.collectiblesInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.collectiblesInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.collectiblesInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewCheckBoxColumn1});
+            this.collectiblesInput.Location = new System.Drawing.Point(0, 0);
+            this.collectiblesInput.Margin = new System.Windows.Forms.Padding(0);
+            this.collectiblesInput.Name = "collectiblesInput";
+            this.collectiblesInput.RowHeadersVisible = false;
+            this.collectiblesInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.collectiblesInput.Size = new System.Drawing.Size(404, 339);
+            this.collectiblesInput.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Collectible";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn5.Width = 336;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Found";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn1.Width = 50;
             // 
             // slot1Button
             // 
@@ -1393,51 +1438,6 @@
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             // 
-            // tabCollectibles
-            // 
-            this.tabCollectibles.Controls.Add(this.collectiblesInput);
-            this.tabCollectibles.Location = new System.Drawing.Point(4, 22);
-            this.tabCollectibles.Name = "tabCollectibles";
-            this.tabCollectibles.Size = new System.Drawing.Size(404, 329);
-            this.tabCollectibles.TabIndex = 9;
-            this.tabCollectibles.Text = "Collectibles";
-            this.tabCollectibles.UseVisualStyleBackColor = true;
-            // 
-            // collectiblesInput
-            // 
-            this.collectiblesInput.AllowUserToAddRows = false;
-            this.collectiblesInput.AllowUserToDeleteRows = false;
-            this.collectiblesInput.AllowUserToResizeColumns = false;
-            this.collectiblesInput.AllowUserToResizeRows = false;
-            this.collectiblesInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.collectiblesInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.collectiblesInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewCheckBoxColumn1});
-            this.collectiblesInput.Location = new System.Drawing.Point(0, 0);
-            this.collectiblesInput.Margin = new System.Windows.Forms.Padding(0);
-            this.collectiblesInput.Name = "collectiblesInput";
-            this.collectiblesInput.RowHeadersVisible = false;
-            this.collectiblesInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.collectiblesInput.Size = new System.Drawing.Size(404, 339);
-            this.collectiblesInput.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Collectible";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn5.Width = 336;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Found";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCheckBoxColumn1.Width = 50;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1483,10 +1483,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsInput)).EndInit();
             this.tabEncyclopedia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.collectibleInput)).EndInit();
-            this.groupBox.ResumeLayout(false);
-            this.groupBox.PerformLayout();
             this.tabCollectibles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.collectiblesInput)).EndInit();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
